@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Finloans</title>
+  <style>
+    /* General styles */
+    .menu-list {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+    ul li a {
+      color: #032641;
+      font-size: 25px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 900;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    li a:hover {
+      color: #00C2F9;
+      transition: color 0.2s ease-in-out;
+    }
+    nav svg {
+      fill: #032641;
+    }
+    /* Checkbox hidden by default */
+    #side-bar-active {
+      display: none;
+    }
+    /* Open and close buttons hidden on desktop */
+    .open-button,
+    .close-button {
+      display: none;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      /* Menu list hidden by default */
+      .menu-list {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 100px;
+        background: white;
+        width: 100%;
+        height: 40%;
+        z-index: 10;
+      }
+      .menu-list li{
+        width: 100%;
+        border-bottom: .080rem solid black;
+        text-align: center;
+        height: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* Show open and close buttons on mobile */
+      .open-button, .close-button {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+      }
+
+      /* Show menu list when checkbox is checked */
+      #side-bar-active:checked ~ .menu-list {
+        display: flex;
+      }
+
+      /* Hide open button when menu is active */
+      #side-bar-active:checked ~ .open-button {
+        display: none;
+      }
+
+      /* Close button only appears when menu is active */
+      #side-bar-active:checked ~ .close-button {
+        display: block;
+        
+      }
+    }
+  </style>
+</head>
+<body >
+    <!-- Navbar -->
+    <header class="bg-white w-full h-20 shadow-lg border-[2px] flex items-center md:justify-between">
+      <nav class="container mx-auto w-full h-20 md:flex ">
+        <!-- Logo -->
+        <div class="h-full w-[255px]">
+          <a href="index.html"><img class="h-full w-[219px] p-[10px]" src="img/asset 0.webp" alt="Logo"></a>
+        </div>
+    
+        <!-- Menu List -->
+        <input type="checkbox" id="side-bar-active">
+        <ul class="menu-list md:w-full md:justify-evenly md:static absolute container mx-auto z-10">
+          <li class="inline-block group"><a class="relative" href="asset.html">Asset Finance
+            <i class="fa-solid fa-caret-down"></i>
+            <ul class="absolute hidden group-hover:block origin-top-right bg-white shadow-lg">
+              <li class="block border-black border-b"><a class="font-lato text-base font-normal" href="about.html">industries
+                <i class="fa-solid fa-chevron-right"></i>
+              </a></li>
+              <li class="block "><a class="font-lato text-base font-normal" href="all-loans.html">equipment type
+                <i class="fa-solid fa-chevron-right"></i>
+              </a></li>
+            </ul>
+          </a></li>
+          <li class="group inline-block"><a class="relative" href="all-loans.html">All Loans
+            <i class="fa-solid fa-caret-down"></i>
+            <ul class="absolute hidden group-hover:block origin-top-right bg-white shadow-lg">
+              <li class="block border-black border-b "><a class="font-lato text-base font-normal" href="about.html">all Loans</a></li>
+              <li class="block border-black border-b "><a class="font-lato text-base font-normal" href="all-loans.html">Home Loans</a></li>
+              <li class="block border-black border-b "><a class="font-lato text-base font-normal" href="asset.html">Refinancing</a></li>
+              <li class="block "><a class="font-lato text-base font-normal" href="asset.html">Investment Loans</a></li>
+            </ul>
+          </a></li>
+          <li><a href="about.html">About Finloans</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    
+        <!-- Open Button -->
+        <label for="side-bar-active" class="open-button ">
+          <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px">
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+          </svg>
+        </label> 
+    
+        <!-- Close Button -->
+        <label for="side-bar-active" class="close-button">
+          <svg class="fill-black " xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px">
+            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+          </svg>
+        </label>
+      </nav>
+    </header>
+    <!-- main section -->
+<section class="md:h-[100vh] h-[70vh] md:w-full w-auto bg-no-repeat bg-cover relative bg-blend-overlay bg-gray-400" style="background-image: url('img/asset\ 7.webp');">
+    <div class="container mx-auto h-full w-full flex items-center justify-center ">
+        <div class=" px-5 md:h-full h-auto md:w-full w-auto flex flex-col items-start justify-center text-white md:p-5 md:mr-4 ">
+        <h1 class="md:h-[132px] h-auto md:w-fit text-wrap w-auto font-lato font-extrabold md:text-6xl text-3xl mb-5 text-left">
+            Finance Your Future <br>
+            with Confidence</h1>
+        <p class="mb-[15px] md:w-full w-auto">We specialise in providing reliable, hassle-free asset finance.</p>
+        <p class="mb-[15px] md:w-full w-auto">solutions to help businesses grow with assurance.</p>
+        <div class="md:w-full w-auto md:h-[113px] h-auto pt-[44px] px-[15px] pb-[15px]">
+            <a class="capitalize text-white py-[18px] px-[46px] rounded-lg bg-color1 hover:bg-color2 transition-all ease-in duration-200 transform hover:scale-95" href="#">Get a Quote</a>
+        </div>
+        <div><h2><a class=" font-lato text-[28px] md:w-full w-auto" href="#">or Request a Call Back</a></h2></div>
+        </div>
+    </div>
+    <div class="w-full absolute xl:top-[85vh] lg:top-[89vh] md:top-[92vh] top-[65vh]">
+        <svg class=" rotate-180 " xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' fill='#F5F5F5'><path d='M0 0v100l500-48 500 48V0H0z' opacity='.5'></path><path d='M0 0h1000v52H0z' opacity='.5'></path><path d='M0 0v4l500 48 500-48V0H0z' opacity='.5'></path><path d='M0 0v4l500 48 500-48V0H0z'></path></svg>
+    </div>
+    </section>
+    <!-- section -->
+      <!-- what can we do -->
+   <section class=" md:my-[95px] md:px[131px] md:h-screen md:w-full h-auto w-auto flex items-center justify-center">
+    <div class="container mx-auto md:h-full md:w-full h-auto w-auto flex items-center justify-center">
+      <div class="md:h-full md:w-full h-auto w-auto flex items-center justify-center flex-col mx-5 ">
+        <h2 class="text-center font-lato text-[44px] text-color1 font-extrabold">Finloans help Businesses Thrive!</h2>
+        <h2 class="text-center font-lato text-[18px]">No matter what your aim is, we can help you with a variety of loan alternatives. Our competitive advantage is that we prioritise our clients.</h2>
+        <div class=" md:mt[66px] flex md:flex-row flex-col md:mt-16 md:h-[310px] h-auto md:w-full w-auto">
+          <div class="md:h-[310px] md:w-[379px] h-auto w-auto mx-5 px-5  flex items-center flex-col">
+            <div class="h-20 flex justify-start items-center w-full">
+              <i class="h-10 w-10  fa-solid fa-circle-dollar-to-slot"></i>
+            </div>
+            <div class="mb-[15px]"><h3 class=" text-left w-full mb-[15px] text-2xl">REFINANCE</h3>
+              <p>Ease your worries by consolidating existing debts using FINLOANS refinancing. We have the support you need.</p></div>
+            <div class="w-full text-left"><span>Learn More</span></div>
+          </div>
+          <div class="md:h-[310px] md:w-[379px] h-auto w-auto mx-5 px-5 flex items-center flex-col">
+            <div class="h-20 flex justify-start items-center w-full">
+              <i class="h-10 w-10 fa-solid fa-house-user"></i>
+            </div>
+            <div class="mb-[15px]"><h3 class=" text-left w-full mb-[15px] text-2xl">HOME LOANS</h3>
+              <p>Whether you're a first-time homeowner or expanding your property portfolio, we'll make your mortgage quick and easy.</p></div>
+            <div class="w-full text-left"><span>Learn More</span></div>
+          </div>
+          <div class="md:h-[310px] md:w-[379px] h-auto w-auto mx-5 px-5 flex items-center flex-col">
+            <div class="h-20 flex justify-start items-center w-full">
+              <i class="h-10 w-10 fa-solid fa-hand-holding-dollar"></i>
+            </div>
+            <div class="mb-[15px]"><h3 class=" text-left w-full mb-[15px] text-2xl">ASSET FINANCE</h3>
+              <p>Our Asset Finance specialists are here to help you finance your desired vehicle or fund needed assets</p></div>
+            <div class="w-full text-left"><span>Learn More</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </section>
+   <!-- why choose finloans -->
+    <section class="md:h-[495px] h-auto md:w-full w-auto flex content-center items-center md:mt-0 mt-10">
+        <div class="container mx-auto md:h-full h-auto md:w-full w-full lg:flex items-center justify-center grid md:grid-cols-2 place-items-center">
+            <div class=" md:h-[295px] md:w-[240px] w-full grid-cols-subgrid md:col-span-2 ">
+                <div class="md:w-[219px] md:h-[144px] mb-5">
+                    <div class="">
+                        <h2 class="text-[40px] md:w-[219px] md:h-[144px] text-center text-color1 text-wrap">
+                        Why choose FINLOANS
+                        </h2>
+                    </div>
+                        <div class="md:w-full w-auto md:h-[113px] h-auto pt-[44px] px-[15px] pb-[15px] flex">
+                            <a class="capitalize text-white py-[15px] pl-[44px] text-left rounded-lg bg-color1 hover:bg-color2 transition-all ease-in duration-200 transform hover:scale-95 flex" href="#">apply online<span class="px-3"><i class="fa-solid fa-arrow-right"></i></span></a>
+                        </div>
+                </div>
+            </div>
+            <div class=" md:w-[240px] w-full md:h-[295px] h-[280px] ">
+                <div class="md:w-[240px] w-auto md:h-[295px] h-[280px] p-3 flex flex-col justify-center">
+                    <div class=" mb-5 md:h-[100px] h-[100px] md:w-[220px] w-full bg-white rounded-lg shadow-xl content-center">
+                        <h2 class="text-xl font-bold font-lato text-center">
+                            Fast & Efficient Approval process
+                        </h2>
+                    </div>
+                    <div class=" mb-5 md:h-[100px] h-[100px] md:w-[220px] w-full bg-white rounded-lg shadow-xl  content-center">
+                        <h2 class="text-xl font-bold font-lato text-center">
+                            Fast & Efficient Approval process
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class=" md:w-[240px] w-full md:h-[295px] h-[280px] ">
+                <div class="md:w-[240px] w-auto md:h-[295px] h-[280px] p-3 flex flex-col justify-center">
+                    <div class=" mb-5 md:h-[100px] h-[100px] md:w-[220px] w-full bg-white rounded-lg shadow-xl  content-center">
+                        <h2 class="text-xl font-bold font-lato text-center">
+                            Fast & Efficient Approval process
+                        </h2>
+                    </div>
+                    <div class=" mb-5 md:h-[100px] h-[100px] md:w-[220px] w-full bg-white rounded-lg shadow-xl  content-center">
+                        <h2 class="text-xl font-bold font-lato text-center">
+                            Fast & Efficient Approval process
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class=" md:w-[240px] w-full md:h-[295px] h-[280px] ">
+                <div class="md:w-[240px] w-auto md:h-[295px] h-[280px] p-3 flex flex-col justify-center">
+                    <div class=" mb-5 md:h-[100px] h-[100px] md:w-[220px] w-full bg-white rounded-lg shadow-xl  content-center">
+                        <h2 class="text-xl font-bold font-lato text-center ">
+                            Fast & Efficient Approval process
+                        </h2>
+                    </div>
+                    <div class=" mb-5 md:h-[100px] h-[100px] md:w-[220px] w-full bg-white rounded-lg shadow-xl  content-center">
+                        <h2 class="text-xl font-bold font-lato text-center ">
+                            Fast & Efficient Approval process
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+      <!-- finance future -->
+  <section class="bg-[#F5F5F5] md:h-[85vh] h-auto w-full md:p-[75px]">
+    <div class="container mx-auto md:h-[447px] h-auto w-full">
+  <div class="h-full w-full flex md:flex-row flex-col gap-5 items-center justify-center">
+    <div class="2nd h-[453px] md:w-[600px] w-full md:p-[10px] px-5 ">
+        <div class="h-full w-full flex md:items-start items-end"><img class="rounded-2xl" src="img/asset 8.webp" alt=""></div>
+      </div>
+    <div class="1st h-[453px] md:w-[600px] w-full md:p-[10px] px-5 flex items-center flex-col justify-center ">
+      <div class="md:w-full"><h4 class="font-lato text-[52px] text-color1 font-bold mb-5 text-left ">Ready to Apply?</h4></div>
+      <h2 class=" mb-5">At <strong>FINLOANS</strong> we work collaboratively with our clients and lenders to find the best financial solution for you in a quick and timely manner.</h2>
+      <h2>At <strong>FINLOANS</strong> we work collaboratively with our clients and lenders to find the best financial solution for you in a quick and timely manner.</h2>
+      <div class="h-[54px] w-full px-[15px] pt-11 pb-[15px]">
+        <a href="#" class="md:h-full md:w-[237px] w-fit h-fit rounded-lg flex items-center bg-color1 py-[18px] px-[46px]">
+          <span>APPLY ONLINE</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+    </div>
+  </section>
+  <!-- Latest News, -->
+   <section class="md:w-full md:h-full h-auto bg-white ">
+    <div class="container mx-auto md:w-full md:h-full h-auto">
+        <div class="md:w-full md:h-full h-auto">
+            <div class="md:h-[46px] md:w-full flex md:items-center items-start md:justify-center mx-10 md:mb-5 ">
+                <a href="#" class="py-[15px] px-8 bg-color1 hover:bg-color2 text-white rounded-lg">
+                    <span>check our blog</span>
+                    <span><i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+            </div>
+            <!-- 2nd -->
+             <div class="md:h-[54px] h-[88px] md:w-full w-auto md:mb-5 mt-5 mx-10">
+                <h3 class="md:text-[45px] text-3xl text-left md:text-center text-color1">Latest News, Tips & more..</h3>
+             </div>
+             <!-- 3rd -->
+              <div class="md:p-5 md:my-[5px] md:h-[681px] md:w-ful md:px-0 px-4">
+                <div class="md:h-[614px] w-full flex justify-center gap-5 md:flex-row flex-col">
+                    <div class="md:h-full md:w-[347px]">
+                        <div class="px-[30px] mt-5 md:h-[547px] w-full rounded-t-3xl shadow-2xl border-t-2 bg-white">
+                          <h3 class="md:h-[60px] md:w-full mb-6 "><a class="font-bold text-2xl text-[#0078C3]" href="#">How FINLOANS Can Help You Invest In Property</a></h3>
+                          <div class="mb-6">      
+                            <p>Many people are lost when it comes to financial needs. People don’t understand how to begin their financial planning and how they will manage a mortgage when the expense of living is skyrocketing. The cost of living has heavily increased this year through interest rates and inflation. Financial support such as mortgage brokers are a starting point to assist you in this financially tough time. FINLOANS can help you find a competitive rate to save you time, money, and energy. Making it manageable to sustain a healthy mortgage plan.…</p>
+                            <a href="#" class="mt-4 text-[#0078C3] flex items-center hover:text-black transition-all ease-in duration-200">
+                              <span>Continue reading</span>
+                            <span class="p-2 content-center "><i class="fa-solid fa-arrow-right"></i></span>
+                          </a>
+                          </div>
+                          <div class=" w-full"><a href="#" class="mb-5 capitalize">read more</a></div>
+                        </div>
+                        <div class="md:h-[46px] w-full px-[15px] py-[30px] bg-white text-[#B5ADAD] rounded-b-3xl shadow-xl flex items-center justify-center border-t-2">1 November 2022 </div>
+                    </div>
+                    <!-- 22 -->
+                    <div class="md:h-full md:w-[347px]">
+                      <div class="px-[30px] mt-5 md:h-[547px] w-full rounded-t-3xl shadow-2xl border-t-2">
+                        <h3 class="md:h-[60px] md:w-full mb-6 "><a class="font-bold text-2xl text-[#0078C3]" href="#">How FINLOANS Can Help You Invest In Property</a></h3>
+                        <div class="mb-6">      
+                          <p>Many people are lost when it comes to financial needs. People don’t understand how to begin their financial planning and how they will manage a mortgage when the expense of living is skyrocketing. The cost of living has heavily increased this year through interest rates and inflation. Financial support such as mortgage brokers are a starting point to assist you in this financially tough time. FINLOANS can help you find a competitive rate to save you time, money, and energy. Making it manageable to sustain a healthy mortgage plan.…</p>
+                          <a href="#" class="mt-4 text-[#0078C3] flex items-center hover:text-black transition-all ease-in duration-200">
+                            <span>Continue reading</span>
+                          <span class="p-2 content-center "><i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                        </div>
+                        <div class=" w-full"><a href="#" class="mb-5 capitalize">read more</a></div>
+                      </div>
+                      <div class="md:h-[46px] w-full px-[15px] py-[30px] text-[#B5ADAD] rounded-b-3xl shadow-xl flex items-center justify-center border-t-2 bg-white">1 september 2022 </div>
+                    </div>
+                    <!-- 33 -->
+                    <div class="md:h-full md:w-[347px]">
+                      <div class="px-[30px] mt-5 md:h-[547px] w-full rounded-t-3xl shadow-2xl border-t-2">
+                        <h3 class="md:h-[60px] md:w-full mb-6 "><a class="font-bold text-2xl text-[#0078C3]" href="#">How FINLOANS Can Help You Invest In Property</a></h3>
+                        <div class="mb-6">      
+                          <p>Many people are lost when it comes to financial needs. People don’t understand how to begin their financial planning and how they will manage a mortgage when the expense of living is skyrocketing. The cost of living has heavily increased this year through interest rates and inflation. Financial support such as mortgage brokers are a starting point to assist you in this financially tough time. FINLOANS can help you find a competitive rate to save you time, money, and energy. Making it manageable to sustain a healthy mortgage plan.…</p>
+                          <a href="#" class="mt-4 text-[#0078C3] flex items-center hover:text-black transition-all ease-in duration-200">
+                            <span>Continue reading</span>
+                          <span class="p-2 content-center "><i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                        </div>
+                        <div class=" w-full"><a href="#" class="mb-5 capitalize">read more</a></div>
+                      </div>
+                      <div class="md:h-[46px] w-full px-[15px] py-[30px] text-[#B5ADAD] rounded-b-3xl shadow-xl flex items-center justify-center border-t-2 bg-white">1 october 2022 </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </div>
+   </section>
+<!-- footer -->
+<section class=" md:h-[600px] h-auto md:w-full w-auto mt-5 ">
+  <div class=" md:pt-[50px] md:pb-[5px] py-[30px] px-5 md:h-[485px] h-auto md:w-full w-auto">
+    <div class="container mx-auto md:h-full h-auto md:w-full w-auto md:grid md:grid-cols-3 grid-rows-3">
+      <div class=" md:h-[370px] h-auto md:w-[415px] w-full"> 
+        <div class="md:mr-[83.17px] p-[10px]">
+          <div class="w-full h-[73px]"><img class="h-full w-[273px]" src="img/asset 0.webp" alt=""></div>
+          <p class="mb-[15px] text-[#C4C4C4]">Need funds for a new asset, mortgage property, or debt consolidation? At FINLOANS, we’ll do our best to find the right financing solution to your unique needs and best interest.</p>
+
+        </div>
+      </div>
+      <div class=" md:h-[370px] h-auto md:w-[343px] w-full p-[10px]">
+        <h4 class="capitalize font-lato text-xl text-[#0078C3]">navigation</h4>
+        <div class="grid grid-cols-2">
+          <div></div>
+          <div>
+            
+            <ul>
+              <li><i class=" text-[#C4C4C4] fa-solid fa-caret-right"></i><span>Refinancing</span></li>
+              <li><i class=" text-[#C4C4C4] fa-solid fa-caret-right"></i><span>Home Loans</span></li>
+              <li><i class=" text-[#C4C4C4] fa-solid fa-caret-right"></i><span>Asset Financing</span></li>
+              <li><i class=" text-[#C4C4C4] fa-solid fa-caret-right"></i><span>Home</span></li>
+              <li><i class=" text-[#C4C4C4] fa-solid fa-caret-right"></i><span>Loans</span></li>
+              <li><i class=" text-[#C4C4C4] fa-solid fa-caret-right"></i><span>About</span></li>
+              <li><i class=" text-[#C4C4C4] fa-solid fa-caret-right"></i><span>Blogs</span></li>
+              <li><i class=" text-[#C4C4C4] fa-solid fa-caret-right"></i><span>Contact</span></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class=" md:h-[379px] h-auto md:w-[370px] w-full p-[10px]">
+        <h4 class="capitalize font-lato text-xl text-[#0078C3] mb-5">newsletter</h4>
+        <div class="h-[49px] w-full mb-[10px] px-[5px]">
+          <input class="border-black border-[1px] rounded-3xl py-[15px] px-5 h-full w-full" type="text" placeholder="your email">
+        </div>
+        <div class="mb-[10px] px-[5px]">
+          <button class="mt-[10px] px-6 bg-color1 h-[49px] w-full rounded-3xl"> subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- line divider -->
+  <div class="h-[60px] py-[27px]  flex justify-center">
+    <hr class="border-black border[6px] w-[50vw]">
+  </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+ </section>
+ <!-- !-- lower -->
+  <div class=" md:h[151px] h-auto md:w-full w-auto mb-[31.78px] md:mt-0 mt-28">
+    <div class="container mx-auto md:h-full md:w-full h-auto w-auto">
+      <div>
+        <div>
+          <section class="flex justify-center md:h-full md:w-full h-auto w-auto">
+            <div class="flex items-center md:flex-row flex-col mt-5 px-2 pb-24 h-auto w-full">
+              <div class="md:h-[70px] md:w-[399px] w-full flex items-center md:flex-row flex-col">
+                <h2 class="text-center mr-5">follow us</h2>
+                <div><span><i class=" h-[30px] w-[30px] hover:text-color1 transition-all ease-in fa-brands fa-facebook"></i></span>
+                  <span><i class=" h-[30px] w-[30px] hover:text-color1 transition-all ease-in fa-brands fa-instagram"></i></span>
+                  <span><i class=" h-[30px] w-[30px] hover:text-color1 transition-all ease-in fa-brands fa-linkedin"></i></span></div>
+              </div>
+              <div class="h-[70px] md:w-[399px] w-full flex items-center justify-center md:flex-row">
+                <h2>© 2022 FINLOANS</h2>
+              </div>
+              <div class="h-[70px] md:w-[399px] w-full">
+                <div class="">
+                  <div class="h-[70px] md:w-[299px] w-auto bg-white flex items-center justify-center md:flex-row border-black border-[1px] rounded-3xl py-[15px] px-5 gap-4 ">
+                    <i class=" text-[#8D7C81] fa-solid fa-magnifying-glass"></i>
+                    <input class="bg-white" type="text" placeholder="search">
+                  </div>
+                </div>
+</body>
+</html>
+
